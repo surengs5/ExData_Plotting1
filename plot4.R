@@ -26,6 +26,9 @@ with(pwr_df, plot(pwr_df$DateTime, pwr_df$Global_active_power, type="l", main=" 
 ## Plot graph 2
 with(pwr_df, plot(pwr_df$DateTime, pwr_df$Voltage, type="l", main=" ", ylab="Voltage", xlab="datetime"))
 
+## Adjust the top and bottom margins for the lower two plots to get the right scale level into png file
+par(mar=c(4.1,4.1,2.1,2.1))
+
 ## Plot graph 3
 with(pwr_df, plot(pwr_df$DateTime, pwr_df$Sub_metering_1, main="", type="l", col="black", lwd=3, ylab="Energy sub metering", xlab=""))
 lines(pwr_df$DateTime, pwr_df$Sub_metering_2, type="l", col="red", lwd=2)
@@ -35,5 +38,5 @@ legend("topright", bty="n", lty=1, cex=.8, col = c("black", "red", "blue"), lege
 ## Plot graph 4
 with(pwr_df, plot(pwr_df$DateTime, pwr_df$Global_reactive_power, type="l", main=" ", xlab="datetime", ylab="Global_reactive_power"))
 
-dev.copy(png, file = "plot4.png")
+dev.copy(png, file = "plot4.png", width = 480, height = 480, restoreConsole = TRUE)
 dev.off()
