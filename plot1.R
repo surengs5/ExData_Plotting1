@@ -3,7 +3,7 @@ library(data.table)              #package with useful file handling functions
 pwr_dataset_df <- fread("household_power_consumption.txt", sep="auto", header="auto", data.table=TRUE, colClasses=c("date", "character", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric"))
 
 ## Extract the subset of data for the first two days in Feb month and coerce the data types
-pwr_df <- subset(pwr_dataset_df[pwr_dataset_df$Date == "2/1/2007" | pwr_dataset_df$Date == "2/2/2007"])
+pwr_df <- subset(pwr_dataset_df[pwr_dataset_df$Date == "1/2/2007" | pwr_dataset_df$Date == "2/2/2007"])
 pwr_df$Date <- as.Date(pwr_df$Date)
 pwr_df$Global_active_power <- as.numeric(pwr_df$Global_active_power)
 pwr_df$Global_reactive_power <- as.numeric(pwr_df$Global_reactive_power)
